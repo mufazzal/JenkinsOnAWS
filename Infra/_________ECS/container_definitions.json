@@ -1,0 +1,19 @@
+[{
+    "name"      : "jenkin",
+    "image"     : "jenkins/inbound-agent",
+    "memory"    : 128,
+    "essential" : true,
+    "networkMode" : "awsvpc",
+    "portMappings" : [{
+        "containerPort" : 50000
+    }],
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "JenkinSlave-Container",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "Jenkin/slaves/",
+            "awslogs-create-group": "true"
+        }
+    }
+}]
